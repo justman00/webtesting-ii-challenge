@@ -1,7 +1,6 @@
 import React from "react";
 
 function Display(props) {
-  console.log(props);
   return (
     <div>
       <div>Strikes: {props.strikes}</div>

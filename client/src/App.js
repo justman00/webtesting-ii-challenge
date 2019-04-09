@@ -10,12 +10,6 @@ class App extends Component {
   };
 
   render() {
-    if (this.strikes === 3 || this.balls === 4) {
-      this.setState({ strikes: 0, balls: 0 });
-    }
-
-    console.log(this.state);
-
     return (
       <div className="App">
         <Display {...this.state} />
@@ -48,15 +42,14 @@ class App extends Component {
   strike = () => {
     this.setState(prevState => ({
       ...prevState,
-      strikes: (prevState.strikes += 1)
+      strikes: prevState.strikes + 1 === 3 ? 0 : (prevState.strikes += 1)
     }));
   };
 
   ball = () => {
-    console.log("hi");
     this.setState(prevState => ({
       ...prevState,
-      balls: (prevState.balls += 1)
+      balls: prevState.balls + 1 === 4 ? 0 : (prevState.balls += 1)
     }));
   };
 }
